@@ -1,0 +1,88 @@
+#centralwidget {background-color:rgba(20, 20, 20, 250);}
+#Form {background-color:rgba(20, 20, 20, 250);}
+QMainWindow{background-color:rgba(20, 20, 20, 250);}
+
+QWidget{
+	color:rgba(249, 249, 249, 240);
+}
+
+QMenuBar{background-color:rgba(20, 20, 20, 250);}
+QMenu{background-color:rgba(20, 20, 20, 250);}
+QMenu::item:selected{background-color:rgba(229, 229, 229, 100);}
+QMenuBar::item:selected{background-color:rgba(229, 229, 229, 100);}
+QListWidget{background-color:rgba(20, 20, 20, 250);}
+QSpinBox{background-color:rgba(20, 20, 20, 250);}
+
+QMenu::separator{height:5px; background-color:rgba(191, 191, 191, 100);}
+
+QComboBox {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QComboBox QAbstractItemView{
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QLineEdit {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QTextEdit {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QProgressBar {
+     border: 0px solid grey;
+     border-radius: 0px;
+     background-color:rgba(255, 255, 255, 0);
+	color:rgba(255, 255, 255, 0);
+ }
+QProgressBar::chunk
+{
+background-color: rgb(208, 46, 213);
+}
+QTableWidget {
+    background-color: rgba(29, 29, 29, 250);
+    color: rgba(193, 193, 193, 250);
+}
+
+QTableWidget::item {
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: rgba(50, 50, 50, 250);
+}
+
+QTableWidget::item:focus {
+    background-color: rgba(70, 70, 70, 250);
+    outline: none;
+}
+
+QHeaderView::section {
+    background-color: rgba(50, 50, 50, 250);
+    color: rgba(193, 193, 193, 250);
+    padding: 4px;
+    border: none;
+}
+
+QHeaderView {
+    background-color: rgba(50, 50, 50, 250);
+    color: rgba(193, 193, 193, 250);
+    padding: 4px;
+    border: none;
+}
+
+QHeaderView::section:checked {
+    background-color: rgba(70, 70, 70, 250);
+}
+ QTableView QTableCornerButton::section {
+    background-color: rgba(50, 50, 50, 250);
+ }
+
+QPushButton{background-color:rgba(59, 59, 59, 250);}
+QPushButton:hover{background-color:rgba(107, 107, 107, 250);}

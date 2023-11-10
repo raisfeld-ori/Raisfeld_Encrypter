@@ -1,0 +1,51 @@
+"""
+if you don't want to use the VENV, then use
+this file to configure the modules required
+for this project
+
+it's better to use the venv and run main.py
+"""
+if __name__ == "__main__":
+    try:
+        from importlib.util import find_spec
+        import logging
+        from sys import exit
+
+    except ImportError as e:
+        raise "it seems you are missing the std python library. this project cannot run without it."
+
+
+# the class is just a container for every function that checks the modules that exist on the OS
+class ModuleExistence:
+    #  modules that are needed for the project to work
+    @staticmethod
+    def required(modules_names: set[str]):
+        for module in modules_names:
+            if not find_spec(module):
+                logging.critical(f"could not find the module {module}")
+                exit(1)
+
+    # modules that are not required fot the project, but are recommended for better usage
+    @staticmethod
+    def recommended(modules_names: set[str]):
+        for module in modules_names:
+            if not find_spec(module):
+                logging.warning(f"the module {module} is recommended for this project, but isn't required")
+
+    @staticmethod
+    def rust_src(modules_names):
+        for module in modules_names:
+            if not find_spec(module):
+                logging.critical(f"the rust module {module} is missing, "
+                                 f"since it only exists in the venv and not in pip, "
+                                 f"you must take it from the venv and add it to your Lib directory")
+                exit(1)
+
+
+if __name__ == "__main__":
+    modules = ModuleExistence()
+    modules.required({"PyQt6", "appdirs"})
+    modules.recommended({"maturin"})
+    # this is the actual start of the project
+    import src.main
+    src.main.run()
