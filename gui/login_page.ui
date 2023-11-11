@@ -234,6 +234,9 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
         <property name="text">
          <string/>
         </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
         <property name="alignment">
          <set>Qt::AlignLeading</set>
         </property>

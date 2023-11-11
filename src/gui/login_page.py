@@ -181,6 +181,7 @@ class Ui_MainWindow(object):
         self.Password.setFont(font)
         self.Password.setStyleSheet("qproperty-alignment: \'AlignLeft\';")
         self.Password.setText("")
+        self.Password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.Password.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading)
         self.Password.setCursorMoveStyle(QtCore.Qt.CursorMoveStyle.VisualMoveStyle)
         self.Password.setObjectName("Password")
@@ -235,4 +236,3 @@ class Ui_MainWindow(object):
         self.Login.setText(_translate("MainWindow", "Login"))
         self.label_4.setText(_translate("MainWindow", "Don\'t have an account?"))
         self.Create.setText(_translate("MainWindow", "create a new account"))
-

@@ -15,8 +15,9 @@ class LoginPage(Ui_MainWindow, QMainWindow):
     # opens the CreateAccount page and closes this page
     def create_account(self):
         try:
-            self.window = CreateAccount()
+            self.window = CreateAccount(self)
             self.window.show()
+            self.window.showMaximized()
             self.close()
         except Exception as e:
             print(e)

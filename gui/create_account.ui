@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
-    <height>671</height>
+    <width>1091</width>
+    <height>774</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,7 +109,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
      <property name="font">
       <font>
        <family>Secular One</family>
-       <pointsize>20</pointsize>
+       <pointsize>48</pointsize>
       </font>
      </property>
      <property name="text">
@@ -214,11 +214,62 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
        <property name="text">
         <string/>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
        <property name="alignment">
         <set>Qt::AlignLeading</set>
        </property>
        <property name="cursorMoveStyle">
         <enum>Qt::VisualMoveStyle</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>additional security:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="encrypt">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>Encrypt the account</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="key">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>create an account key</string>
        </property>
       </widget>
      </item>
@@ -279,6 +330,9 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
        <family>Secular One</family>
        <pointsize>20</pointsize>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
       <string>cancel</string>

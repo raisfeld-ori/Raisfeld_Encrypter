@@ -9,6 +9,7 @@ def run():
     try:
         login_page = src.pages.login_page.LoginPage()
         login_page.show()
+        login_page.showMaximized()
         exit(app.exec())
     except Exception as e:
         print(e)

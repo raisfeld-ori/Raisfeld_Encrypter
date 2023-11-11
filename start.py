@@ -10,6 +10,7 @@ if __name__ == "__main__":
         from importlib.util import find_spec
         import logging
         from sys import exit
+        from typing import Dict
 
     except ImportError as e:
         raise "it seems you are missing the std python library. this project cannot run without it."
@@ -19,33 +20,37 @@ if __name__ == "__main__":
 class ModuleExistence:
     #  modules that are needed for the project to work
     @staticmethod
-    def required(modules_names: set[str]):
-        for module in modules_names:
+    def required(modules_names: Dict[str, str]):
+        for module, module_name in modules_names.items():
             if not find_spec(module):
                 logging.critical(f"could not find the module {module}")
+                logging.critical(f"install it by running pip install {module_name}")
                 exit(1)
 
     # modules that are not required fot the project, but are recommended for better usage
     @staticmethod
-    def recommended(modules_names: set[str]):
-        for module in modules_names:
+    def recommended(modules_names: Dict[str, str]):
+        for module, module_name in modules_names.items():
             if not find_spec(module):
                 logging.warning(f"the module {module} is recommended for this project, but isn't required")
+                logging.warning(f"install it by running pip install {module_name}")
 
     @staticmethod
     def rust_src(modules_names):
-        for module in modules_names:
+        for module, module_name in modules_names.items():
             if not find_spec(module):
                 logging.critical(f"the rust module {module} is missing, "
                                  f"since it only exists in the venv and not in pip, "
                                  f"you must take it from the venv and add it to your Lib directory")
+                logging.critical(f"it should be under the name \"{module_name}\"")
                 exit(1)
 
 
 if __name__ == "__main__":
     modules = ModuleExistence()
-    modules.required({"PyQt6", "appdirs"})
-    modules.recommended({"maturin"})
+    modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome"})
+    modules.recommended({"maturin": "maturin"})
+    modules.rust_src({"fs": "fs"})
     # this is the actual start of the project
     import src.main
     src.main.run()
