@@ -6,11 +6,14 @@ and then add your tests as class functions
 """
 from unittest import TestCase
 
+import src.encryption
+import fs
+
+
 # testing the rust_src.fs directory
 class TestFS(TestCase):
     # noinspection PyUnresolvedReferences
     def test_directory(self):
-        import fs
         fs.create_dir("example")
         fs.write_file("example\\example.txt", b"test")
         fs.write_file("example\\examplee.txt", b"this works!!")
@@ -19,7 +22,18 @@ class TestFS(TestCase):
 
 class TestEncryption(TestCase):
     def test_key(self):
-        import src.encryption
-
         key = src.encryption.create_key(16)
-        print(key)
+
+    def test_encryption(self):
+        value = b"important data"
+        password = "1234"
+        cipher = src.encryption.Cipher(password)
+        print(cipher.encrypt(value))
+
+    def test_decryption(self):
+        value = b"important data"
+        password = "1234"
+        cipher = src.encryption.Cipher(password)
+        encrypted = cipher.encrypt(value)
+        cipher = src.encryption.Cipher(password)
+        print(cipher.decrypt(encrypted))
