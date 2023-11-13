@@ -9,15 +9,13 @@ class LoginPage(Ui_MainWindow, QMainWindow):
         super().__init__()
         self.setupUi(self)
         self.retranslateUi(self)
+        self.next_window = None
 
         self.Create.clicked.connect(self.create_account)
 
     # opens the CreateAccount page and closes this page
     def create_account(self):
-        try:
-            self.window = CreateAccount(self)
-            self.window.show()
-            self.window.showMaximized()
-            self.close()
-        except Exception as e:
-            print(e)
+        self.next_window = CreateAccount(self)
+        self.next_window.show()
+        self.next_window.showMaximized()
+        self.close()

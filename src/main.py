@@ -4,7 +4,7 @@ from sys import argv, exit
 
 
 # initiates the login_page window from the src.pages.login_page
-def run():
+def main():
     app = QApplication(argv)
     try:
         login_page = src.pages.login_page.LoginPage()
@@ -16,4 +16,4 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    main()

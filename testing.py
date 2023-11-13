@@ -6,7 +6,7 @@ and then add your tests as class functions
 """
 from unittest import TestCase
 
-import src.encryption
+import src.User
 import fs
 
 
@@ -22,18 +22,26 @@ class TestFS(TestCase):
 
 class TestEncryption(TestCase):
     def test_key(self):
-        key = src.encryption.create_key(16)
+        key = src.User.get_random_bytes(16)
 
     def test_encryption(self):
         value = b"important data"
         password = "1234"
-        cipher = src.encryption.Cipher(password)
-        print(cipher.encrypt(value))
+        cipher = src.User.Cipher(password)
+        encrypted_data = cipher.encrypt(value)
 
     def test_decryption(self):
         value = b"important data"
         password = "1234"
-        cipher = src.encryption.Cipher(password)
+        cipher = src.User.Cipher(password)
         encrypted = cipher.encrypt(value)
-        cipher = src.encryption.Cipher(password)
+        cipher = src.User.Cipher(password)
         print(cipher.decrypt(encrypted))
+
+    def test_str_encryption(self):
+        value = "example"
+        password = "1234"
+
+        cipher = src.User.Cipher(password)
+
+        print(cipher.encrypt_to_str(value))
