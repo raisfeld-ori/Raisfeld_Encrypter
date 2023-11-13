@@ -246,6 +246,19 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>add a security key</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="sizeConstraint">
          <enum>QLayout::SetDefaultConstraint</enum>
@@ -255,6 +268,12 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
         </property>
         <item>
          <widget class="QPushButton" name="pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="font">
            <font>
             <family>Secular One</family>
@@ -262,7 +281,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
            </font>
           </property>
           <property name="text">
-           <string>include a key</string>
+           <string>open</string>
           </property>
          </widget>
         </item>
@@ -279,6 +298,12 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
             <family>Secular One</family>
             <pointsize>16</pointsize>
            </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(25, 25, 25);</string>
           </property>
           <property name="text">
            <string/>

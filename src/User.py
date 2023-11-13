@@ -5,7 +5,7 @@ from Crypto.Util.Padding import pad, unpad
 from os.path import normpath
 from typing import Optional
 from base64 import b64encode
-import fs
+import fast_fs
 import appdirs
 
 
@@ -52,20 +52,18 @@ class User:
             self.key = password_as_key(password)
         self.data: list[bytes] = []
         self.name = name
+        self.dir = normpath(appdirs.AppDirs().user_data_dir + '\\' + ".hidden" + "\\" + self.name)
 
     def encrypt(self, val: bytes) -> bytes: return Cipher(self.password, self.key).encrypt(val)
 
     def decrypt(self, val: bytes) -> bytes: return Cipher(self.password, self.key).decrypt(val)
 
     def create(self) -> Optional[Exception]:
-        # dir is the location for saved data (depending on the OS)
-        dir = normpath(appdirs.AppDirs().user_data_dir + '\\' + ".hidden")
-
-        file_dir = normpath(dir + '\\' + self.name)
-        print(file_dir)
         try:
-            fs.create_dir(file_dir)
+            fast_fs.create_dir(self.dir)
+            # some file is needed to make sure the account's password works before actually opening it,
+            # so check.txt is just here for this
+            fast_fs.write_file(normpath(self.dir + "\\" + "check.txt"), b"abst")
         except Exception as e:
             return e
         return None
-

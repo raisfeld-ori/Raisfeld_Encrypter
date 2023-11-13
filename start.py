@@ -50,7 +50,7 @@ if __name__ == "__main__":
     modules = ModuleExistence()
     modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome"})
     modules.recommended({"maturin": "maturin"})
-    modules.rust_src({"fs": "fs"})
+    modules.rust_src({"fast_fs": "fast_fs"})
     # this is the actual start of the project
     import src.main
-    src.main.run()
+    src.main.main()

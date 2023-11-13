@@ -10,6 +10,12 @@
     <height>823</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Secular One</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -106,7 +112,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="Name">
       <property name="font">
        <font>
         <family>Secular One</family>
@@ -138,11 +144,6 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
           <pointsize>18</pointsize>
          </font>
         </property>
-        <item>
-         <property name="text">
-          <string>some</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="0" column="1">
@@ -191,6 +192,9 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
@@ -204,6 +208,22 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1097</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Secular One</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
   </widget>
  </widget>
  <resources/>
