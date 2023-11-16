@@ -27,14 +27,6 @@ class ModuleExistence:
                 logging.critical(f"install it by running pip install {module_name}")
                 exit(1)
 
-    # modules that are not required fot the project, but are recommended for better usage
-    @staticmethod
-    def recommended(modules_names: Dict[str, str]):
-        for module, module_name in modules_names.items():
-            if not find_spec(module):
-                logging.warning(f"the module {module} is recommended for this project, but isn't required")
-                logging.warning(f"install it by running pip install {module_name}")
-
     @staticmethod
     def rust_src(modules_names):
         for module, module_name in modules_names.items():
@@ -48,9 +40,11 @@ class ModuleExistence:
 
 if __name__ == "__main__":
     modules = ModuleExistence()
-    modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome"})
-    modules.recommended({"maturin": "maturin"})
+    modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome", "maturin": "maturin"})
     modules.rust_src({"fast_fs": "fast_fs"})
     # this is the actual start of the project
     import src.main
+    from maturin import import_hook
+    import_hook.install()
     src.main.main()
+

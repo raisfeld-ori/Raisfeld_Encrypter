@@ -4,7 +4,6 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from os.path import normpath
 from typing import Optional
-from base64 import b64encode
 import fast_fs
 import appdirs
 
@@ -27,11 +26,6 @@ class Cipher:
         self.key = PBKDF2(password, key if key else password_as_key(password), dkLen=32)
         self.cipher = AES.new(self.key, AES.MODE_CBC, iv=get_random_bytes(16))
 
-    def encrypt_to_str(self, data: str) -> str:
-        data = self.encrypt(data.encode())
-        data = b64encode(data).decode()
-        return data
-
     # using pycryptodome, encryption is just 1 line
     def encrypt(self, data: bytes) -> bytes: return self.cipher.encrypt(pad(data, AES.block_size)) + self.cipher.iv
 
@@ -50,7 +44,7 @@ class User:
             self.key = key
         else:
             self.key = password_as_key(password)
-        self.data: list[bytes] = []
+        self.vaults: list[Vault] = []
         self.name = name
         self.dir = normpath(appdirs.AppDirs().user_data_dir + '\\' + ".hidden" + "\\" + self.name)
 
@@ -63,7 +57,21 @@ class User:
             fast_fs.create_dir(self.dir)
             # some file is needed to make sure the account's password works before actually opening it,
             # so check.txt is just here for this
-            fast_fs.write_file(normpath(self.dir + "\\" + "check.txt"), b"abst")
+            cipher = Cipher(self.password, self.key)
+            fast_fs.write_file(normpath(self.dir + "\\" + "check.txt"), cipher.encrypt(b"abst"))
         except Exception as e:
             return e
         return None
+
+    def save(self):
+        for i, vault in enumerate(self.vaults):
+            fast_fs.write_file(normpath(self.dir + "\\" + str(i)), vault.data)
+
+
+class Vault:
+    def __init__(self, name: str, user: User, data: bytes):
+        self.name = name
+        self.data = user.encrypt(data)
+        self.user = user
+
+    def get(self) -> bytes: return Cipher(self.user.password, self.user.key).decrypt(self.data)

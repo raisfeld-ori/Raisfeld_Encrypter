@@ -1,7 +1,7 @@
 import src.pages.login_page, src.pages.create_account
 from PyQt6.QtWidgets import QApplication
 from sys import argv, exit
-
+import codecs
 
 # initiates the login_page window from the src.pages.login_page
 def main():

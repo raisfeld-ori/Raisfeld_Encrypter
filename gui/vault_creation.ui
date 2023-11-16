@@ -144,7 +144,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </widget>
    </item>
    <item alignment="Qt::AlignHCenter">
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="Vault_name">
      <property name="font">
       <font>
        <family>Secular One</family>
@@ -167,7 +167,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </widget>
    </item>
    <item alignment="Qt::AlignHCenter">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="Select_dir">
      <property name="font">
       <font>
        <family>Secular One</family>
@@ -183,7 +183,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </widget>
    </item>
    <item alignment="Qt::AlignTop">
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="Vault_dir">
      <property name="font">
       <font>
        <family>Secular One</family>
@@ -209,7 +209,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </spacer>
    </item>
    <item alignment="Qt::AlignHCenter">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="Create_vault">
      <property name="font">
       <font>
        <family>Secular One</family>
@@ -225,7 +225,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </widget>
    </item>
    <item alignment="Qt::AlignVCenter">
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="Error">
      <property name="font">
       <font>
        <family>Secular One</family>

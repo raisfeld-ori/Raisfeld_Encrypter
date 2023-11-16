@@ -13,6 +13,7 @@ class LoginPage(Ui_MainWindow, QMainWindow):
 
         self.Create.clicked.connect(self.create_account)
 
+
     # opens the CreateAccount page and closes this page
     def create_account(self):
         self.next_window = CreateAccount(self)

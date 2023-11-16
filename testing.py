@@ -7,7 +7,6 @@ and then add your tests as class functions
 from unittest import TestCase
 
 import src.User
-import fs
 
 
 # testing the rust_src.fs directory
@@ -38,10 +37,16 @@ class TestEncryption(TestCase):
         cipher = src.User.Cipher(password)
         print(cipher.decrypt(encrypted))
 
-    def test_str_encryption(self):
-        value = "example"
-        password = "1234"
 
-        cipher = src.User.Cipher(password)
+from src.User import User, Vault
 
-        print(cipher.encrypt_to_str(value))
+class TestUser(TestCase):
+    def test_creation(self):
+        usr = User("example", "example")
+        usr.create()
+
+    def test_save(self):
+        usr = User("example", "example")
+        usr.create()
+        usr.vaults.append(Vault("example", usr, b"example"))
+        usr.save()
