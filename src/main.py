@@ -1,7 +1,8 @@
-import src.pages.login_page, src.pages.create_account
+import src.pages.login_page
+import src.pages.create_account
 from PyQt6.QtWidgets import QApplication
-from sys import argv, exit
-import codecs
+from sys import argv
+
 
 # initiates the login_page window from the src.pages.login_page
 def main():
@@ -10,7 +11,7 @@ def main():
         login_page = src.pages.login_page.LoginPage()
         login_page.show()
         login_page.showMaximized()
-        exit(app.exec())
+        app.exec()
     except Exception as e:
         print(e)
 

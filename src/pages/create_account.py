@@ -50,6 +50,8 @@ class CreateAccount(Ui_Form, QWidget):
                 parent=self,
                 caption="select where to hide the key",
             )
+            if not file_dir:
+                return
             file_dir = normpath(file_dir)
             if not file_dir:
                 return

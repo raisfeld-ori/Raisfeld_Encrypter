@@ -1,9 +1,16 @@
+use std::path::PathBuf;
+use std::fs::remove_file;
+
 use pyo3::prelude::*;
 use pyo3::types::PyBytes;
+use tokio::fs::DirEntry;
+use tokio::sync::mpsc;
 
 extern crate tokio;
 extern crate pyo3_asyncio;
 use crate::tokio::io::AsyncWriteExt;
+
+
 
 #[pyfunction]
 pub fn create_dir(py: Python, dir: String) -> PyResult<()>{
@@ -20,16 +27,51 @@ pub fn write_file(py: Python, file: String, text: &PyBytes)->PyResult<()>{
     });
 }
 
+
+#[derive(Debug)]
+#[pyclass]
+pub struct DirFile{
+    pub file: DirEntry,
+    pub path: PathBuf,
+    pub file_name: String,
+
+}
+
+impl DirFile{
+    async fn new(file: DirEntry) -> Self {
+        return Self{
+            file_name: file.file_name().to_str().unwrap().to_string(),
+            path: file.path(),
+            file,
+        }
+    }
+}
+
+#[pymethods]
+impl DirFile{
+    pub fn name(&self)->Option<String>{Some(self.path.file_stem()?.to_str()?.to_string())}
+    pub fn extension(&self)->Option<String>{Some(self.file.path().extension()?.to_str()?.to_string())}
+    pub fn read(&self, py: Python)->Option<Py<PyAny>>{
+        let file = read_file(py, self.path.to_str()?.to_string());
+        if file.is_err() {return None;}
+        else{return Some(file.unwrap());}
+    }
+    pub fn delete(&self) -> PyResult<()>{Ok(remove_file(self.file.path())?)}
+}
+
 #[pyfunction]
-pub fn read_dir(py: Python, dir: String) -> PyResult<Vec<String>>{
+pub fn read_dir(py: Python, dir: String) -> PyResult<Vec<DirFile>>{
     return pyo3_asyncio::tokio::run(py, async move{
         let mut files = tokio::fs::read_dir(dir).await?;
-        let mut result: Vec<String> = Vec::new();
+        let (snd,mut rcv) = mpsc::unbounded_channel();
         while let Ok(Some(file)) = files.next_entry().await{
-            result.push(file.file_name().to_str().unwrap().to_string());
+            let _ = snd.send(DirFile::new(file));
         }
-        
-        Ok(result)
+        let mut result = Vec::new();
+        while let Ok(file) = rcv.try_recv(){
+            result.push(file.await);
+        }
+        return Ok(result);
     });
 }
 
@@ -42,7 +84,6 @@ pub fn read_file(py: Python, file: String) -> PyResult<PyObject>{
     });
     return Ok(PyBytes::new(py, &data??).into());
 }
-
 
 #[pymodule]
 fn fast_fs(_py: Python, m: &PyModule) -> PyResult<()> {
@@ -57,7 +98,9 @@ fn fast_fs(_py: Python, m: &PyModule) -> PyResult<()> {
 pub fn test_fn(){
     pyo3::prepare_freethreaded_python();
     pyo3::Python::with_gil(|py|{
-        println!("{:?}", read_dir(py, String::from("./")));
+        let files = read_dir(py, String::from("./")).unwrap();
+        let file = files.iter().nth(2).unwrap();
+        println!("{:?}", file.delete());
     });
 }
 

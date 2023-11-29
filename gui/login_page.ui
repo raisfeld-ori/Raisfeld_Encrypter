@@ -267,7 +267,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
          <number>0</number>
         </property>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="Open_key">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -286,7 +286,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="Key_name">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -341,6 +341,22 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
         </property>
         <property name="text">
          <string>Login</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="Error">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:red;</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>

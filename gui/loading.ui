@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>836</width>
+    <height>302</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralwidget {background-color:rgba(20, 20, 20, 250);}
+#Form {background-color:rgba(20, 20, 20, 250);}
+QMainWindow{background-color:rgba(20, 20, 20, 250);}
+
+QWidget{
+	color:rgba(249, 249, 249, 240);
+}
+
+QMenuBar{background-color:rgba(20, 20, 20, 250);}
+QMenu{background-color:rgba(20, 20, 20, 250);}
+QMenu::item:selected{background-color:rgba(229, 229, 229, 100);}
+QMenuBar::item:selected{background-color:rgba(229, 229, 229, 100);}
+QListWidget{background-color:rgba(20, 20, 20, 250);}
+QSpinBox{background-color:rgba(20, 20, 20, 250);}
+
+QMenu::separator{height:5px; background-color:rgba(191, 191, 191, 100);}
+
+QComboBox {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QComboBox QAbstractItemView{
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QLineEdit {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QTextEdit {
+	color:rgba(193, 193, 193, 250);
+	background-color:rgba(29, 29, 29, 250);
+	border:none;
+}
+QProgressBar {
+     border: 0px solid grey;
+     border-radius: 0px;
+     background-color:rgba(255, 255, 255, 0);
+ }
+QTableWidget {
+    background-color: rgba(29, 29, 29, 250);
+    color: rgba(193, 193, 193, 250);
+}
+
+QTableWidget::item {
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: rgba(50, 50, 50, 250);
+}
+
+QTableWidget::item:focus {
+    background-color: rgba(70, 70, 70, 250);
+    outline: none;
+}
+
+QHeaderView::section {
+    background-color: rgba(50, 50, 50, 250);
+    color: rgba(193, 193, 193, 250);
+    padding: 4px;
+    border: none;
+}
+
+QHeaderView {
+    background-color: rgba(50, 50, 50, 250);
+    color: rgba(193, 193, 193, 250);
+    padding: 4px;
+    border: none;
+}
+
+QHeaderView::section:checked {
+    background-color: rgba(70, 70, 70, 250);
+}
+ QTableView QTableCornerButton::section {
+    background-color: rgba(50, 50, 50, 250);
+ }
+
+QPushButton{background-color:rgba(59, 59, 59, 250);}
+QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="Task">
+     <property name="font">
+      <font>
+       <family>Secular One</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="Estimation">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>estimated time:</string>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="TimeLeft">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="Current">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>current task:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Tasks">
+       <property name="font">
+        <font>
+         <family>Secular One</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="font">
+      <font>
+       <family>Secular One</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

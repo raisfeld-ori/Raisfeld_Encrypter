@@ -1,6 +1,8 @@
 from src.gui.vault_creation import Ui_Raisfeld_security
+from src.pages.loading import Loading
 from PyQt6.QtWidgets import QWidget, QFileDialog
-from src.User import Vault, User
+from PyQt6.QtCore import pyqtSignal
+from src.User import Vault, User, estimate_time
 import fast_fs
 
 
@@ -18,8 +20,11 @@ class VaultCreation(Ui_Raisfeld_security, QWidget):
         self.vault_dir = ""
         self.data = b""
 
+        self.next_window = None
         self.Create_vault.clicked.connect(self.create_vault)
         self.Select_dir.clicked.connect(self.select_dir)
+
+    def closeEvent(self, a0): self.previous_page.show()
 
     def select_dir(self):
         file_selection, _ = QFileDialog().getOpenFileName(parent=self, caption="select the file for the vault")
@@ -33,11 +38,35 @@ class VaultCreation(Ui_Raisfeld_security, QWidget):
         if self.vault_dir == "":
             self.Error.setText("No file selected, please select a file")
             return
-        self.vault_name = self.Vault_name.text()
-        self.data = fast_fs.read_file(self.vault_dir)
-        vault = Vault(self.vault_name, self.user, self.data)
-        self.previous_page.show()
-        self.user.vaults.append(vault)
-        self.previous_page.update_user(self.user)
-        self.close()
 
+        def vault_creation(task_signal: pyqtSignal, err_signal: pyqtSignal):
+            try:
+                self.vault_name = self.Vault_name.text()
+                task_signal.emit("reading the file")
+                try:
+                    self.data = fast_fs.read_file(self.vault_dir)
+                except Exception as e:
+                    print(e)
+                    err_signal.emit("failed to read the file")
+                    return
+                task_signal.emit("creating the vault")
+                vault = Vault(self.vault_name, self.user, self.data)
+                task_signal.emit("adding the vault to the user's vaults")
+                self.user.vaults.append(vault)
+                task_signal.emit("updating the main page")
+                self.previous_page.update_user(self.user)
+            except Exception as e:
+                print(e)
+        duration = estimate_time(self.vault_dir)
+        if not duration:
+            self.Error.setText("failed to locate the file in the vault")
+            return
+
+        self.next_window = Loading(self, self.previous_page, "creating the vault",
+                                   int(duration),
+                                   vault_creation,
+                                   5,
+                                   True,
+                                   "reading vault name")
+        self.next_window.show()
+        self.hide()
