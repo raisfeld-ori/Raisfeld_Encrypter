@@ -132,7 +132,7 @@ class User:
                     case "n":
                         files[file.name()]['name']: str = file.read().decode()
                     case "f":
-                        files[file.name()]['data']: bytes = self.decrypt(file.read())
+                        files[file.name()]['data']: bytes = file.read()
                     case _:
                         continue
             except MemoryError:

@@ -110,8 +110,80 @@ QPushButton{background-color:rgba(59, 59, 59, 250);}
 QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="1" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="Save">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>save vaults</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="New">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>New vault</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Open">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Open vault</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Delete">
+        <property name="font">
+         <font>
+          <family>Secular One</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Delete vault</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="3" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="Name">
       <property name="font">
        <font>
@@ -124,7 +196,7 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
       </property>
      </widget>
     </item>
-    <item>
+    <item row="3" column="0" colspan="3">
      <widget class="QLineEdit" name="Search">
       <property name="font">
        <font>
@@ -134,78 +206,31 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
       </property>
      </widget>
     </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QListWidget" name="List">
-        <property name="font">
-         <font>
-          <family>Secular One</family>
-          <pointsize>18</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QPushButton" name="New">
-          <property name="font">
-           <font>
-            <family>Secular One</family>
-            <pointsize>20</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>New vault</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="Open">
-          <property name="font">
-           <font>
-            <family>Secular One</family>
-            <pointsize>20</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Open vault</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="Delete">
-          <property name="font">
-           <font>
-            <family>Secular One</family>
-            <pointsize>20</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Delete vault</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
+    <item row="4" column="0">
+     <widget class="QListWidget" name="List">
+      <property name="font">
+       <font>
+        <family>Secular One</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="3">
+     <widget class="QLabel" name="Error">
+      <property name="font">
+       <font>
+        <family>Secular One</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:red;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -225,6 +250,11 @@ QPushButton:hover{background-color:rgba(107, 107, 107, 250);}</string>
     </font>
    </property>
   </widget>
+  <action name="actionauto_save">
+   <property name="text">
+    <string>auto save</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

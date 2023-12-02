@@ -40,7 +40,13 @@ class LoginPage(Ui_MainWindow, QMainWindow):
         user = User(self.Name.text(), self.Password.text(), self.key)
 
         def load_user(task_signal: pyqtSignal, end_signal: pyqtSignal):
-            err = user.load()
+            try:
+                err = user.load()
+            except Exception as e:
+                print(e)
+                self.Error_signal.emit("failed to load the user")
+                end_signal.emit()
+                return
             if type(err) is str:
                 print(err)
                 self.Error_signal.emit(err)

@@ -55,7 +55,6 @@ class TestEncryption(TestCase):
         print(cipher.decrypt(encrypted))
 
 
-
 class TestUser(TestCase):
     def test_creation(self):
         usr = User("example", "example")

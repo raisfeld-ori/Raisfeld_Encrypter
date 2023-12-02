@@ -2,10 +2,10 @@ import fast_fs
 
 from src.gui import main_page
 from PyQt6.QtWidgets import QMainWindow, QFileDialog
-from PyQt6.QtCore import QModelIndex
+from PyQt6.QtCore import QModelIndex, pyqtSignal
 from src.User import User
 from src.pages.vault_creation import VaultCreation
-
+from src.pages.loading import Loading
 
 class MainPage(main_page.Ui_MainWindow, QMainWindow):
     def __init__(self, user: User, just_created: bool):
@@ -24,12 +24,13 @@ class MainPage(main_page.Ui_MainWindow, QMainWindow):
         self.New.clicked.connect(self.create_vault)
         self.List.doubleClicked.connect(self.open_vault)
         self.Delete.clicked.connect(self.delete_vault)
+        self.Save.clicked.connect(self.save_user)
 
         self.update_user(self.user)
 
     def closeEvent(self, a0):
+        self.save_user(True)
         self.close()
-        self.user.save()
 
     def open_vault(self, item: QModelIndex):
         data = self.user[item.row()]
@@ -56,3 +57,25 @@ class MainPage(main_page.Ui_MainWindow, QMainWindow):
         self.List.clear()
         for item in self.user.vaults:
             self.List.addItem(item.name)
+
+    def save_user(self, final: bool = False):
+        def save_user(task: pyqtSignal, close: pyqtSignal):
+            try:
+                self.user.save()
+            except:
+                self.Error.setText("failed to save the new vaults")
+                close.emit()
+            task.emit("done")
+
+        final = None if final else self
+        # rough estimation
+        vaults_time = int((sum([len(vault.data) for vault in self.user.vaults]) / 1073741824) * 10)
+        self.next_window = Loading(self, final, "saving the vaults",
+                                   vaults_time,
+                                   save_user,
+                                   2,
+                                   True,
+                                   "saving the vaults on the disk"
+                                   )
+        self.next_window.show()
+        self.hide()
