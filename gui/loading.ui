@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Raisfeld encrypter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../raisfeld-encrypter-website/static/icon.ico</normaloff>../raisfeld-encrypter-website/static/icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#centralwidget {background-color:rgba(20, 20, 20, 250);}

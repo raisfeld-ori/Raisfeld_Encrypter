@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Raisfeld_encrypter</class>
+ <widget class="QMainWindow" name="Raisfeld_encrypter">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Raisfeld encrypter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../raisfeld-encrypter-website/static/icon.ico</normaloff>../raisfeld-encrypter-website/static/icon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#centralwidget {background-color:rgba(20, 20, 20, 250);}

@@ -9,15 +9,18 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1097, 823)
+class Ui_Raisfeld_encrypter(object):
+    def setupUi(self, Raisfeld_encrypter):
+        Raisfeld_encrypter.setObjectName("Raisfeld_encrypter")
+        Raisfeld_encrypter.resize(1097, 823)
         font = QtGui.QFont()
         font.setFamily("Secular One")
         font.setPointSize(12)
-        MainWindow.setFont(font)
-        MainWindow.setStyleSheet("#centralwidget {background-color:rgba(20, 20, 20, 250);}\n"
+        Raisfeld_encrypter.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../../raisfeld-encrypter-website/static/icon.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        Raisfeld_encrypter.setWindowIcon(icon)
+        Raisfeld_encrypter.setStyleSheet("#centralwidget {background-color:rgba(20, 20, 20, 250);}\n"
 "#Form {background-color:rgba(20, 20, 20, 250);}\n"
 "QMainWindow{background-color:rgba(20, 20, 20, 250);}\n"
 "\n"
@@ -105,7 +108,7 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton{background-color:rgba(59, 59, 59, 250);}\n"
 "QPushButton:hover{background-color:rgba(107, 107, 107, 250);}")
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget = QtWidgets.QWidget(parent=Raisfeld_encrypter)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
@@ -172,27 +175,27 @@ class Ui_MainWindow(object):
         self.Error.setText("")
         self.Error.setObjectName("Error")
         self.gridLayout.addWidget(self.Error, 5, 0, 1, 3)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menuBar = QtWidgets.QMenuBar(parent=MainWindow)
+        Raisfeld_encrypter.setCentralWidget(self.centralwidget)
+        self.menuBar = QtWidgets.QMenuBar(parent=Raisfeld_encrypter)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 1097, 46))
         font = QtGui.QFont()
         font.setFamily("Secular One")
         font.setPointSize(16)
         self.menuBar.setFont(font)
         self.menuBar.setObjectName("menuBar")
-        MainWindow.setMenuBar(self.menuBar)
-        self.actionauto_save = QtGui.QAction(parent=MainWindow)
+        Raisfeld_encrypter.setMenuBar(self.menuBar)
+        self.actionauto_save = QtGui.QAction(parent=Raisfeld_encrypter)
         self.actionauto_save.setObjectName("actionauto_save")
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Raisfeld_encrypter)
+        QtCore.QMetaObject.connectSlotsByName(Raisfeld_encrypter)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Raisfeld_encrypter):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Save.setText(_translate("MainWindow", "save vaults"))
-        self.New.setText(_translate("MainWindow", "New vault"))
-        self.Open.setText(_translate("MainWindow", "Open vault"))
-        self.Delete.setText(_translate("MainWindow", "Delete vault"))
-        self.Name.setText(_translate("MainWindow", "welcome back (name)!"))
-        self.actionauto_save.setText(_translate("MainWindow", "auto save"))
+        Raisfeld_encrypter.setWindowTitle(_translate("Raisfeld_encrypter", "Raisfeld encrypter"))
+        self.Save.setText(_translate("Raisfeld_encrypter", "save vaults"))
+        self.New.setText(_translate("Raisfeld_encrypter", "New vault"))
+        self.Open.setText(_translate("Raisfeld_encrypter", "Open vault"))
+        self.Delete.setText(_translate("Raisfeld_encrypter", "Delete vault"))
+        self.Name.setText(_translate("Raisfeld_encrypter", "welcome back (name)!"))
+        self.actionauto_save.setText(_translate("Raisfeld_encrypter", "auto save"))

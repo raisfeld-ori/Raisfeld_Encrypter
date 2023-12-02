@@ -13,6 +13,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(836, 302)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../../raisfeld-encrypter-website/static/icon.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        Form.setWindowIcon(icon)
         Form.setStyleSheet("#centralwidget {background-color:rgba(20, 20, 20, 250);}\n"
 "#Form {background-color:rgba(20, 20, 20, 250);}\n"
 "QMainWindow{background-color:rgba(20, 20, 20, 250);}\n"
@@ -157,6 +160,6 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Raisfeld encrypter"))
         self.Estimation.setText(_translate("Form", "estimated time:"))
         self.Current.setText(_translate("Form", "current task:"))

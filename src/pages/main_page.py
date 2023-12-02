@@ -7,7 +7,7 @@ from src.User import User
 from src.pages.vault_creation import VaultCreation
 from src.pages.loading import Loading
 
-class MainPage(main_page.Ui_MainWindow, QMainWindow):
+class MainPage(main_page.Ui_Raisfeld_encrypter, QMainWindow):
     def __init__(self, user: User, just_created: bool):
         super().__init__()
         self.setupUi(self)

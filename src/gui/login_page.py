@@ -16,6 +16,9 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Secular One")
         MainWindow.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../../raisfeld-encrypter-website/static/icon.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("#centralwidget {background-color:rgba(20, 20, 20, 250);}\n"
 "#Form {background-color:rgba(20, 20, 20, 250);}\n"
 "QMainWindow{background-color:rgba(20, 20, 20, 250);}\n"
@@ -277,7 +280,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Raisfeld encrypter"))
         self.label_3.setText(_translate("MainWindow", "Welcome!"))
         self.label.setText(_translate("MainWindow", "Name"))
         self.label_2.setText(_translate("MainWindow", "Password"))

@@ -1,10 +1,10 @@
 import os.path
 
-from src.gui.create_account import Ui_Form
+from gui.create_account import Ui_Form
 from PyQt6.QtWidgets import QWidget, QFileDialog
-from src.User import User, get_random_bytes
+from User import User, get_random_bytes
 from os.path import normpath
-from src.pages.main_page import MainPage
+from pages.main_page import MainPage
 from typing import Optional
 import logging
 import fast_fs

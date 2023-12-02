@@ -1,5 +1,5 @@
-import src.pages.login_page
-import src.pages.create_account
+import pages.login_page
+import pages.create_account
 from PyQt6.QtWidgets import QApplication
 from sys import argv
 
@@ -8,7 +8,7 @@ from sys import argv
 def main():
     app = QApplication(argv)
     try:
-        login_page = src.pages.login_page.LoginPage()
+        login_page = pages.login_page.LoginPage()
         login_page.show()
         login_page.showMaximized()
         app.exec()
