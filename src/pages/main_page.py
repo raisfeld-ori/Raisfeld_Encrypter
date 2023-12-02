@@ -1,11 +1,11 @@
 import fast_fs
 
-from src.gui import main_page
+from gui import main_page
 from PyQt6.QtWidgets import QMainWindow, QFileDialog
 from PyQt6.QtCore import QModelIndex, pyqtSignal
-from src.User import User
-from src.pages.vault_creation import VaultCreation
-from src.pages.loading import Loading
+from User import User
+from pages.vault_creation import VaultCreation
+from pages.loading import Loading
 
 class MainPage(main_page.Ui_Raisfeld_encrypter, QMainWindow):
     def __init__(self, user: User, just_created: bool):

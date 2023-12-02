@@ -1,8 +1,8 @@
-from src.gui.login_page import Ui_MainWindow
-from src.pages.create_account import CreateAccount
-from src.pages.main_page import MainPage
-from src.pages.loading import Loading
-from src.User import User
+from gui.login_page import Ui_MainWindow
+from pages.create_account import CreateAccount
+from pages.main_page import MainPage
+from pages.loading import Loading
+from User import User
 from PyQt6.QtWidgets import QMainWindow, QFileDialog
 from PyQt6.QtCore import pyqtSignal
 from typing import Optional

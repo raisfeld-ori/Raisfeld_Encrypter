@@ -8,6 +8,7 @@ from pages.main_page import MainPage
 from typing import Optional
 import logging
 import fast_fs
+import fast_fs
 
 
 # implements Ui_MainWindow from sec.gui.create_account and adds functionality

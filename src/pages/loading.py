@@ -1,4 +1,4 @@
-from src.gui.loading import Ui_Form
+from gui.loading import Ui_Form
 from PyQt6.QtWidgets import QWidget
 from PyQt6.QtCore import QTimer, QThread, pyqtSignal
 from typing import Callable, Optional
