@@ -1,16 +1,13 @@
-<script>
-	import { goto } from '$app/navigation';
-	function download(){goto('/download')}
-</script>
+<script>import { goto } from '$app/navigation';</script>
 
 <section>
 	<h1>
 		<span class="welcome">raisfeld encrypter</span>
 	</h1>
 	<h3>
-		some explanation of the app
+		the free, open source encrypter
 	</h3>
-	<button on:click={download}>
+	<button on:click={() => {goto('/download')}}>
 			download now
 	</button>
 </section>

@@ -4,11 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5de9b760-a768-418b-8de1-9c31604ef94b" name="Changes" comment="fixed code to work with pyinstaller" />
+    <list default="true" id="5de9b760-a768-418b-8de1-9c31604ef94b" name="Changes" comment="fixed code to work with pyinstaller">
+      <change afterPath="$PROJECT_DIR$/compile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raisfeld-encrypter-website/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/raisfeld-encrypter-website/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raisfeld-encrypter-website/src/routes/download/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/raisfeld-encrypter-website/src/routes/download/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/create_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/create_account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/loading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/dependencies.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,9 +50,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/raisf/Desktop/projects/Raisfeld_Encrypter/src/main.py&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/raisf/Desktop/projects/Raisfeld_Encrypter/build&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\raisf\Desktop\projects\Raisfeld_Encrypter\build" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python">
       <module name="Raisfeld_Encrypter" />
@@ -84,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701529145650</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed code to work with pyinstaller">
+      <option name="closed" value="true" />
+      <created>1701529721017</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701529721017</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

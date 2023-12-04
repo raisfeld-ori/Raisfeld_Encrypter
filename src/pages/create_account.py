@@ -1,14 +1,13 @@
 import os.path
 
-from gui.create_account import Ui_Form
+from src.gui.create_account import Ui_Form
 from PyQt6.QtWidgets import QWidget, QFileDialog
-from User import User, get_random_bytes
+from src.User import User, get_random_bytes
 from os.path import normpath
-from pages.main_page import MainPage
+from src.pages.main_page import MainPage
 from typing import Optional
+from src.User import fast_fs
 import logging
-import fast_fs
-import fast_fs
 
 
 # implements Ui_MainWindow from sec.gui.create_account and adds functionality

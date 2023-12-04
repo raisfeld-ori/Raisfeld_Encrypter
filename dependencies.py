@@ -43,8 +43,6 @@ if __name__ == "__main__":
     modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome", "maturin": "maturin"})
     modules.rust_src({"fast_fs": "fast_fs"})
     # this is the actual start of the project
-    import src.main
     from maturin import import_hook
     import_hook.install()
-    src.main.main()
 

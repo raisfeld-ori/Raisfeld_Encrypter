@@ -1,12 +1,23 @@
+<script>
+    function download(file){
+
+    let a = document.getElementById('download');
+
+    a.download = file;
+    a.href = file;
+
+    a.click();
+    }
+</script>
+
+<a id="download" style="display: none;"> </a>
+
 <section>
-    <button class="target">
+    <button class="target" on:click={()=>{download('Raisfeld encrypter.exe')}}>
         windows
     </button>
     <button class="target">
         linux
-    </button>
-    <button class="target">
-        source
     </button>
 </section>
 
