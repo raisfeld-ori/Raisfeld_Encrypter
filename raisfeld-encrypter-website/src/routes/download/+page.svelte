@@ -13,7 +13,7 @@
 <a id="download" style="display: none;"> </a>
 
 <section>
-    <button class="target" on:click={()=>{download('Raisfeld encrypter.exe')}}>
+    <button class="target" on:click={()=>{download('raisfeld encrypter setup.exe')}}>
         windows
     </button>
     <button class="target">

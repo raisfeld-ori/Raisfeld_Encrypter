@@ -3,10 +3,25 @@ from Crypto.Protocol.KDF import PBKDF2
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from os.path import normpath, exists, getsize
+from os import remove
 from typing import Optional
 
 import fast_fs
 import appdirs
+
+
+def init_dir() -> str:
+    save_dir = appdirs.AppDirs().user_data_dir
+    try:
+        test_file = normpath(save_dir + "\\foo")
+        fast_fs.write_file(test_file, b"")
+        remove(test_file)
+        return save_dir
+    except Exception as e:
+        print("failed to save data: ", e)
+        return "."
+
+DIR = init_dir()
 
 
 def password_as_key(password: str):
@@ -70,7 +85,7 @@ class User:
             self.key = password_as_key(password)
         self.vaults: list[Vault] = []
         self.name = name
-        self.dir = normpath(appdirs.AppDirs().user_data_dir + '\\' + ".hidden" + "\\" + self.name)
+        self.dir = normpath(DIR + '\\' + ".hidden" + "\\" + self.name)
         self.check = b"b7 18 85 32 12 41 60 fe 48 09 "
 
     def encrypt(self, data: bytes) -> Optional[bytes]:
