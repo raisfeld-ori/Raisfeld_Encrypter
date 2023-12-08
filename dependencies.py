@@ -5,15 +5,13 @@ for this project
 
 it's better to use the venv and run main.py
 """
-if __name__ == "__main__":
-    try:
-        from importlib.util import find_spec
-        import logging
-        from sys import exit
-        from typing import Dict
-
-    except ImportError as e:
-        raise "it seems you are missing the std python library. this project cannot run without it."
+try:
+    from importlib.util import find_spec
+    import logging
+    from sys import exit
+    from typing import Dict
+except ImportError as e:
+    raise "it seems you are missing the std python library. this project cannot run without it."
 
 
 # the class is just a container for every function that checks the modules that exist on the OS
@@ -26,6 +24,8 @@ class ModuleExistence:
                 logging.critical(f"could not find the module {module}")
                 logging.critical(f"install it by running pip install {module_name}")
                 exit(1)
+            else:
+                print(f"{module} is installed")
 
     @staticmethod
     def rust_src(modules_names):
@@ -36,9 +36,11 @@ class ModuleExistence:
                                  f"you must take it from the venv and add it to your Lib directory")
                 logging.critical(f"it should be under the name \"{module_name}\"")
                 exit(1)
+            else:
+                print(f"{module} is installed")
 
 
-if __name__ == "__main__":
+def main():
     modules = ModuleExistence()
     modules.required({"PyQt6": "PyQt6", "appdirs": "appdirs", "Crypto": "Pycryptodome", "maturin": "maturin"})
     modules.rust_src({"fast_fs": "fast_fs"})
@@ -46,3 +48,6 @@ if __name__ == "__main__":
     from maturin import import_hook
     import_hook.install()
 
+
+if __name__ == "__main__":
+    main()
