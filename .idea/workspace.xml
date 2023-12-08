@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5de9b760-a768-418b-8de1-9c31604ef94b" name="Changes" comment="created a setup wizard and finished the website">
+    <list default="true" id="5de9b760-a768-418b-8de1-9c31604ef94b" name="Changes" comment="almost done, just trying to fix the compilation">
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raisfeld-encrypter-website/netlify.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raisfeld-encrypter-website/src/routes/+layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raisfeld-encrypter-website/static/raisfeld encrypter setup.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Raisfeld encrypter/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Raisfeld encrypter/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Raisfeld encrypter/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Raisfeld encrypter/EXE-00.toc" afterDir="false" />
@@ -147,12 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701795318387</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="almost done, just trying to fix the compilation">
+      <option name="closed" value="true" />
+      <created>1702057453972</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702057453972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed code to work with pyinstaller" />
     <MESSAGE value="created a setup wizard and finished the website" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a setup wizard and finished the website" />
+    <MESSAGE value="almost done, just trying to fix the compilation" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost done, just trying to fix the compilation" />
   </component>
 </project>
